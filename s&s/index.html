@@ -40,7 +40,8 @@
         padding: 20px;
       }
       .nike-image {
-        width: 100%; /* Make image fit the container */
+        width: 80%;
+        height: 90%;
       }
 
       .content-container {
@@ -67,53 +68,28 @@
     />
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand text-white" href="#">
-        <span style="font-size: 30px; margin-right: 10px">Step in Style</span>
-        <img
-          src="assets/logo.png"
-          alt="Logo"
-          style="width: 70px; height: 40px"
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <img
-                src="assets/cart.png"
-                alt="Cart"
-                style="width: 50px; height: 50px"
-              />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div id="navbar"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarContainer = document.getElementById("navbar");
+
+        fetch("navbar.html")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                "Network response was not ok " + response.statusText
+              );
+            }
+            return response.text();
+          })
+          .then((data) => {
+            navbarContainer.innerHTML = data;
+          })
+          .catch((error) => {
+            console.error("Error fetching the navbar:", error);
+          });
+      });
+    </script>
 
     <!-- Content -->
     <div class="container content-container">
@@ -130,47 +106,62 @@
     </div>
 
     <script>
-      // Get the URL parameter
-      const urlParams = new URLSearchParams(window.location.search);
-      const collection = urlParams.get("shoes");
+      document.addEventListener("DOMContentLoaded", () => {
+        // Define the collection data
+        const collections = [
+          {
+            name: "ADIDAS COLLECTION",
+            image: "adidas.png",
+          },
+          {
+            name: "JORDAN COLLECTION",
+            image: "jordan.png",
+          },
+          {
+            name: "UNDER ARMOUR COLLECTION",
+            image: "armour.png",
+          },
+          {
+            name: "NEW BALANCE COLLECTION",
+            image: "balance.png",
+          },
+          {
+            name: "ANTA COLLECTION",
+            image: "anta.png",
+          },
+        ];
 
-      // Define the collection data
-      const collections = {
-        nike: {
-          name: "NIKE COLLECTION",
-          image: "nike.png",
-        },
-        adidas: {
-          name: "ADIDAS COLLECTION",
-          image: "adidas.png",
-        },
-        jordan: {
-          name: "JORDAN COLLECTION",
-          image: "jordan.png",
-        },
-        underarmour: {
-          name: "UNDER ARMOUR COLLECTION",
-          image: "armour.png",
-        },
-        newbalance: {
-          name: "NEW BALANCE COLLECTION",
-          image: "balance.png",
-        },
-        anta: {
-          name: "ANTA COLLECTION",
-          image: "anta.png",
-        },
-      };
+        let currentIndex = 0;
 
-      // Update the collection name and image
-      if (collection && collections[collection]) {
         const collectionName = document.querySelector("h2");
-        collectionName.textContent = collections[collection].name;
-
         const collectionImage = document.querySelector(".nike-image");
-        collectionImage.src = `assets/${collections[collection].image}`;
-        collectionImage.alt = collections[collection].name;
-      }
+
+        const updateCollection = () => {
+          // Add animation class
+          collectionName.classList.add("fade-out");
+          collectionImage.classList.add("fade-out");
+
+          setTimeout(() => {
+            // Update content after fade-out
+            collectionName.textContent = collections[currentIndex].name;
+            collectionImage.src = `assets/${collections[currentIndex].image}`;
+            collectionImage.alt = collections[currentIndex].name;
+
+            // Remove animation class to trigger fade-in
+            collectionName.classList.remove("fade-out");
+            collectionName.classList.add("fade-in");
+
+            collectionImage.classList.remove("fade-out");
+            collectionImage.classList.add("fade-in");
+
+            // Increment index for the next update
+            currentIndex = (currentIndex + 1) % collections.length;
+          }, 500); // Match the duration of the fade-out animation
+        };
+
+        // Start cycling through collections every 3 seconds
+        setInterval(updateCollection, 2000);
+      });
     </script>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
