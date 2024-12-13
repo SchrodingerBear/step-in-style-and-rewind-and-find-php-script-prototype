@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collection Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Full page background image */
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        background-image: url("assets/bg.png"); /* Placeholder background image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      /* Navigation bar with gray background */
+      .navbar {
+        background-color: #d9d9d9;
+      }
+      .navbar a {
+        color: black !important;
+      }
+
+      /* Ensure no scrolling */
+      body {
+        overflow: hidden;
+        font-family: "Lemon", cursive;
+        font-size: 30px;
+      }
+
+      .col-md-6 {
+        padding: 20px;
+      }
+      .nike-image {
+        width: 100%; /* Make image fit the container */
+      }
+
+      .content-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      h2 {
+        font-size: 90px;
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lemon&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand text-white" href="#">
+        <span style="font-size: 30px; margin-right: 10px">Step in Style</span>
+        <img
+          src="assets/logo.png"
+          alt="Logo"
+          style="width: 70px; height: 40px"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img
+                src="assets/cart.png"
+                alt="Cart"
+                style="width: 50px; height: 50px"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container content-container">
+      <div class="row">
+        <!-- First Column -->
+        <div class="col-md-6">
+          <h2 class="text-white" style="font-size: 90px">Nike Collection</h2>
+        </div>
+        <!-- Second Column with Nike Image -->
+        <div class="col-md-6">
+          <img src="assets/nike.png" alt="Nike Image" class="nike-image" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get the URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const collection = urlParams.get("shoes");
+
+      // Define the collection data
+      const collections = {
+        nike: {
+          name: "NIKE COLLECTION",
+          image: "nike.png",
+        },
+        adidas: {
+          name: "ADIDAS COLLECTION",
+          image: "adidas.png",
+        },
+        jordan: {
+          name: "JORDAN COLLECTION",
+          image: "jordan.png",
+        },
+        underarmour: {
+          name: "UNDER ARMOUR COLLECTION",
+          image: "armour.png",
+        },
+        newbalance: {
+          name: "NEW BALANCE COLLECTION",
+          image: "balance.png",
+        },
+        anta: {
+          name: "ANTA COLLECTION",
+          image: "anta.png",
+        },
+      };
+
+      // Update the collection name and image
+      if (collection && collections[collection]) {
+        const collectionName = document.querySelector("h2");
+        collectionName.textContent = collections[collection].name;
+
+        const collectionImage = document.querySelector(".nike-image");
+        collectionImage.src = `assets/${collections[collection].image}`;
+        collectionImage.alt = collections[collection].name;
+      }
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Full page background image */
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        background-image: url("assets/bg.png"); /* Placeholder background image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      /* Navigation bar with gray background */
+      .navbar {
+        background-color: #d9d9d9;
+      }
+      .navbar a {
+        color: black !important;
+        font-size: 30px;
+      }
+
+      /* Ensure no scrolling */
+      body {
+        overflow: hidden;
+        font-family: "Lemon", cursive;
+      }
+
+      .col-md-6 p {
+        text-align: left !important;
+      }
+      .nike-image {
+        width: 100%; /* Make image fit the container */
+      }
+
+      .content-container {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      h2 {
+        font-size: 90px;
+      }
+
+      .row {
+        margin-right: 150px;
+      }
+      .card {
+        width: 300px;
+        height: 90% !important;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .img-fluid {
+        width: 25%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .card-text {
+        font-size: 18px;
+      }
+
+      .buy-now-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .buy-now-btn:hover {
+        background-color: #0056b3;
+      }
+
+      .cart-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .cart-btn:hover {
+        background-color: #0056b3;
+      }
+
+      .card {
+        width: 300px;
+        height: 400px;
+        margin: 20px auto;
+        border-radius: 10px;
+        color: white !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .buy-now-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .card-body {
+        padding: 20px;
+        font-family: "Lora", serif; /* Pinalitan ang font family para maging Lora */
+      }
+
+      .card-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .card-text {
+        font-size: 18px;
+      }
+
+      .cart-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%; /* Pinalitan ang width para maging 100% */
+        margin-top: 10px; /* Pinalitan ang margin-top para maging 10px */
+      }
+
+      .cart-btn img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px; /* Pinalitan ang margin-right para maging 10px */
+      }
+      p {
+        font-size: 20px;
+      }
+      h5 {
+        font-family: "Lora", serif;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lemon&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand text-white" href="#">
+        <span style="font-size: 30px; margin-right: 10px">Step in Style</span>
+        <img
+          src="assets/logo.png"
+          alt="Logo"
+          style="width: 70px; height: 40px"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img
+                src="assets/cart.png"
+                alt="Cart"
+                style="width: 50px; height: 50px"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+
+    <!-- About Page Content -->
+    <div class="content-container">
+      <h2 class="text-white">ABOUT</h2>
+
+      <!-- Row 1 -->
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img
+            src="assets/shoes/nike3.png"
+            alt="LeBron XXI"
+            class="img-fluid"
+          />
+          <h5 class="text-white">LEBRON XXI</h5>
+        </div>
+        <div class="col-md-6">
+          <p class="text-white" style="font-family: 'Lora', serif">
+            This shoe is a signature model from LeBron James' Nike collection,
+            known for its lightweight, breathable design and innovative support
+            technology. It typically features a sleek upper with premium
+            materials, optimized for comfort, performance, and court stability,
+            reflecting LeBron's powerful playing style.
+          </p>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img
+            src="assets/shoes/anta.png"
+            alt="KT 4 Legacy"
+            class="img-fluid"
+          />
+          <h5 class="text-white">ANTA KT 4 LEGACY</h5>
+        </div>
+        <div class="col-md-6">
+          <p class="text-white" style="font-family: 'Lora', serif">
+            The KT 4 Legacy is part of Klay Thompson's signature line with Anta.
+            It features a high-top design for added ankle support, a textured
+            and patterned upper for durability, and shock-absorbing technology
+            for responsive performance on the basketball court. The shoe is
+            tailored for shooters with a smooth and stable fit.
+          </p>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img
+            src="assets/shoes/anta2.png"
+            alt="Kyrie Shock Wave 5"
+            class="img-fluid"
+          />
+          <h5 class="text-white">ANTA KYRIE SHOCK WAVE 5</h5>
+        </div>
+        <div class="col-md-6">
+          <p class="text-white" style="font-family: 'Lora', serif">
+            Known for its vibrant and dynamic design, the Kyrie Shock Wave 5 is
+            an Anta basketball shoe that emphasizes quick cuts and agility, much
+            like Kyrie Irving's playstyle. It features a multidirectional
+            outsole for superior traction and a bold, colorful design that
+            captures attention both on and off the court.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
